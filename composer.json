@@ -1,0 +1,13 @@
+{
+    "name": "2latlantik/symfony-my-cs",
+    "description": "My coding standard for Symfony project",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Nicolas",
+            "email": "nicolascoudenne@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
