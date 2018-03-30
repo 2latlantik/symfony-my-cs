@@ -9,7 +9,17 @@
         }
     ],
     "minimum-stability": "dev",
-    "require-dev": {
+    "require": {
         "squizlabs/php_codesniffer": "3.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "SymfonyMyCs\\" : "src/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "SymfonyMyCs\\Git\\Hooks\\PostInstall::installHooks"
+        ]    
     }
 }
