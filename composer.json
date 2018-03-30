@@ -20,6 +20,9 @@
     "scripts": {
         "post-install-cmd": [
             "SymfonyMyCs\\Git\\Hooks\\PostInstall::installHooks"
-        ]    
+        ] ,
+        "post-update-cmd": [
+            "SymfonyMyCs\\Git\\Hooks\\PostInstall::installHooks"
+        ]       
     }
 }
