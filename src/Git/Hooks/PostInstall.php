@@ -25,15 +25,15 @@ class PostInstall {
     }
 
     public static function gitHookCopy($rootPath) {
-        $source = $rootPath.'vendor/2latlantik/bin/git-hooks/pre-commit';
-        $destination = $rootPath.'.git/hooks/pre-commit';
+        $source = $rootPath.'vendor'.DIRECTORY_SEPARATOR.'2latlantik'.DIRECTORY_SEPARATOR.'symfony-my-cs'.DIRECTORY_SEPARATOR.'bin'.DIRECTORY_SEPARATOR.'git-hooks'.DIRECTORY_SEPARATOR.'pre-commit';
+        $destination = $rootPath.'.git'.DIRECTORY_SEPARATOR.'hooks'.DIRECTORY_SEPARATOR.'pre-commit';
 
         copy($source, $destination);
         chmod($destination, 0777);
     }
 
     public static function phpcsXmlCopy($rootPath) {
-        $source = $rootPath.'vendor/2latlantik/bin/phpcs-rules/phpcs.xml';
+        $source = $rootPath.'vendor'.DIRECTORY_SEPARATOR.'2latlantik'.DIRECTORY_SEPARATOR.'symfony-my-cs'.DIRECTORY_SEPARATOR.'bin'.DIRECTORY_SEPARATOR.'phpcs-rules'.DIRECTORY_SEPARATOR.'phpcs.xml';
         $destination = $rootPath.'phpcs.xml';
 
         copy($source, $destination);
