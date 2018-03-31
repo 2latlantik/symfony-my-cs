@@ -41,7 +41,7 @@ class PostInstall {
 
     public static function getRootPath() {
         $rootPath = __DIR__;
-        for($i = 1 ; $i <= 5 ; $i++) {
+        for($i = 1 ; $i <= 6 ; $i++) {
             $rootPath .= DIRECTORY_SEPARATOR . '..';
         }       
         return realpath($rootPath);
