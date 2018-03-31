@@ -8,8 +8,9 @@
             "email": "nicolascoudenne@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
+        "php": ">=7.1",
         "squizlabs/php_codesniffer": "3.*"
     },
     "autoload": {
@@ -18,10 +19,7 @@
         }
     },
     "scripts": {
-        "pre-install-cmd": [
-            "SymfonyMyCs\\Git\\Hooks\\PostInstall::installHooks"
-        ] ,
-        "pre-update-cmd": [
+        "my-cs-install": [
             "SymfonyMyCs\\Git\\Hooks\\PostInstall::installHooks"
         ]       
     }
