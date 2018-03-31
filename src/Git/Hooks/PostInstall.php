@@ -1,15 +1,27 @@
-<?php 
+<?php
 namespace SymfonyMyCs\Git\Hooks;
 
 use Composer\Script\Event;
 use Exception;
 
-class PostInstall {
+/**
+ * Class PostInstall
+ *
+ * @package SymfonyMyCs\Git\Hooks
+ */
+class PostInstall
+{
 
-    public static function installHooks(Event $event) {
-        $rootPath = self::getRootPath().DIRECTORY_SEPARATOR;    
+    /**
+     * @param Event $event
+     * @return bool
+     * @throws Exception
+     */
+    public static function installHooks(Event $event) :bool
+    {
+        $rootPath = self::getRootPath().DIRECTORY_SEPARATOR;
         
-        if(!file_exists($rootPath.'.git')) {
+        if (!file_exists($rootPath.'.git')) {
             throw new Exception('Unable to find git repository');
         }
 
@@ -24,7 +36,11 @@ class PostInstall {
         return true;
     }
 
-    public static function gitHookCopy($rootPath) {
+    /**
+     * @param $rootPath
+     */
+    public static function gitHookCopy($rootPath) :void
+    {
         $source = $rootPath.'vendor'.DIRECTORY_SEPARATOR.'2latlantik'.DIRECTORY_SEPARATOR.'symfony-my-cs'.DIRECTORY_SEPARATOR.'bin'.DIRECTORY_SEPARATOR.'git-hooks'.DIRECTORY_SEPARATOR.'pre-commit.sh';
         $gitHookFolder = $rootPath.'.git'.DIRECTORY_SEPARATOR.'hooks';
         if (!is_dir($gitHookFolder)) {
@@ -36,18 +52,26 @@ class PostInstall {
         chmod($destination, 0777);
     }
 
-    public static function phpcsXmlCopy($rootPath) {
+    /**
+     * @param $rootPath
+     */
+    public static function phpcsXmlCopy($rootPath) :void
+    {
         $source = $rootPath.'vendor'.DIRECTORY_SEPARATOR.'2latlantik'.DIRECTORY_SEPARATOR.'symfony-my-cs'.DIRECTORY_SEPARATOR.'bin'.DIRECTORY_SEPARATOR.'phpcs-rules'.DIRECTORY_SEPARATOR.'phpcs.xml';
         $destination = $rootPath.'phpcs.xml';
 
         copy($source, $destination);
     }
 
-    public static function getRootPath() {
+    /**
+     * @return bool|string
+     */
+    public static function getRootPath()
+    {
         $rootPath = __DIR__;
-        for($i = 1 ; $i <= 6 ; $i++) {
+        for ($i = 1; $i <= 6; $i++) {
             $rootPath .= DIRECTORY_SEPARATOR . '..';
-        }       
+        }
         return realpath($rootPath);
     }
 }
