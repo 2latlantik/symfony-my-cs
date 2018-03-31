@@ -7,7 +7,7 @@ use Exception;
 class PostInstall {
 
     public static function installHooks(Event $event) {
-        $rootPath = self::getRootPath();    
+        $rootPath = self::getRootPath().DIRECTORY_SEPARATOR;    
         
         if(!file_exists($rootPath.'.git')) {
             throw new Exception('Unable to find git repository');
@@ -25,9 +25,13 @@ class PostInstall {
     }
 
     public static function gitHookCopy($rootPath) {
-        $source = $rootPath.'vendor'.DIRECTORY_SEPARATOR.'2latlantik'.DIRECTORY_SEPARATOR.'symfony-my-cs'.DIRECTORY_SEPARATOR.'bin'.DIRECTORY_SEPARATOR.'git-hooks'.DIRECTORY_SEPARATOR.'pre-commit';
-        $destination = $rootPath.'.git'.DIRECTORY_SEPARATOR.'hooks'.DIRECTORY_SEPARATOR.'pre-commit';
-
+        $source = $rootPath.'vendor'.DIRECTORY_SEPARATOR.'2latlantik'.DIRECTORY_SEPARATOR.'symfony-my-cs'.DIRECTORY_SEPARATOR.'bin'.DIRECTORY_SEPARATOR.'git-hooks'.DIRECTORY_SEPARATOR.'pre-commit.sh';
+        $gitHookFolder = $rootPath.'.git'.DIRECTORY_SEPARATOR.'hooks';
+        if (!is_dir($gitHookFolder)) {
+            mkdir($gitHookFolder);
+        }
+        $destination = $gitHookFolder.DIRECTORY_SEPARATOR.'pre-commit';
+        
         copy($source, $destination);
         chmod($destination, 0777);
     }
