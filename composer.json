@@ -18,10 +18,10 @@
         }
     },
     "scripts": {
-        "post-install-cmd": [
+        "pre-install-cmd": [
             "SymfonyMyCs\\Git\\Hooks\\PostInstall::installHooks"
         ] ,
-        "post-update-cmd": [
+        "pre-update-cmd": [
             "SymfonyMyCs\\Git\\Hooks\\PostInstall::installHooks"
         ]       
     }
