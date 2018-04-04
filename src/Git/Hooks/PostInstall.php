@@ -33,6 +33,9 @@ class PostInstall
         $io->write('<info>install php-cs rules!</info>');
         self::phpcsXmlCopy($rootPath);
 
+        $io->write('<info>install phpmd rules!</info>');
+        self::phpmdXmlCopy($rootPath);
+
         return true;
     }
 
@@ -59,6 +62,17 @@ class PostInstall
     {
         $source = $rootPath.'vendor'.DIRECTORY_SEPARATOR.'2latlantik'.DIRECTORY_SEPARATOR.'symfony-my-cs'.DIRECTORY_SEPARATOR.'bin'.DIRECTORY_SEPARATOR.'phpcs-rules'.DIRECTORY_SEPARATOR.'phpcs.xml';
         $destination = $rootPath.'phpcs.xml';
+
+        copy($source, $destination);
+    }
+
+    /**
+     * @param $rootPath
+     */
+    public static function phpmdXmlCopy($rootPath) :void
+    {
+        $source = $rootPath.'vendor'.DIRECTORY_SEPARATOR.'2latlantik'.DIRECTORY_SEPARATOR.'symfony-my-cs'.DIRECTORY_SEPARATOR.'bin'.DIRECTORY_SEPARATOR.'phpmd-rules'.DIRECTORY_SEPARATOR.'phpmd.xml';
+        $destination = $rootPath.'phpmd.xml';
 
         copy($source, $destination);
     }

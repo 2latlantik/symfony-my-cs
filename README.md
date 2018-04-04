@@ -1,6 +1,13 @@
 # Symfony-My-Cs
 
-The goal of this library is to gather a set of process to maintain a good code quality of my **symfony** projects.
+The goal of this library is to gather a set of process to maintain a good code quality of my **symfony** projects. Failure to respect some good practices will block the consideration of commit git
+
+I combine the use of different libraries to approve git commit which are:
+- PHP-Lint (A tool to analyze PHP code and to return usage errors)
+- PHP-CS (A tool to control compliance with PSR2 standards here)
+- PHP-CS-FIXER (A tool to control the respect of several coding conventions)
+
+It is also possible to use PHP Mess Detector to further refine the detection of a moderately explicit and error-prone code
 
 # Requirements
 
