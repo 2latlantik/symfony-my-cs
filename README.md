@@ -36,7 +36,7 @@ composer run-script my-cs-install
 
 ## II - Installation of the Symfony Code Quality executable
 
-Symfony created his own code parser and named it [http://cs.sensiolabs.org/](php-cs-fixer) 
+Symfony created his own code parser and named it [http://cs.sensiolabs.org/](php-cs-fixer) .
 
 You must install it to allow your commit to be validated.
 
