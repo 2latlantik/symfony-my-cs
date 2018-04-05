@@ -42,6 +42,15 @@ You must install it to allow your commit to be validated.
 
 ## III - Main moment of library actions
 
+>At the time of a commit git  
+
+PHP Lint and PHPCS check for errors and possibly block commit. At the end php-cs-fix fixes the problems still present. A validated commit is therefore composed of PHP code respecting a set of standards recognized by all.
+
+> Execution of PHPMD to further improve the quality of the code 
+``` 
+./vendor/bin/phpmd src/Controller/ [format] phpmd
+```
+where format : xml|text|html
 
 
 # License
